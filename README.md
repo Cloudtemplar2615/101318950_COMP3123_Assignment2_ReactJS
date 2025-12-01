@@ -39,7 +39,14 @@ The backend API is required for this frontend to work.
     "API running on http://localhost:8080"
 
 ### Frontend SetUp
-1. cd to studentnumber_comp3123_assignment2.react.js
+1. cd to 101318950_comp3123_assignment2.react.js
 2. npm install
 3. npm start 
 4. open app in the browser app link should be http://localhost:3000/login
+
+##  Features
+- Login & Signup with JWT auth
+- Protected routes (only logged-in users)
+- Full Employee CRUD (Create, Read, Update, Delete)
+- Search/filter employees by name / department / designation
+- Profile picture upload & display
