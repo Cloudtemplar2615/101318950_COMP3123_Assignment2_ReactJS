@@ -57,3 +57,6 @@ username "johndoe"
 email "johndoe@example.com"
 
 password "$2b$10$fsJfOqXH2udP4FZnwEzTnupgKTx1MpL4V29wO5nLgvZu6wijbPqYy" if doesnt work try password123
+
+## Note 
+When connected to the local backend (http://localhost:8080/api/v1), profile picture upload works. On the Vercel demo URL, image upload may not work due to Vercel’s file system restrictions.
