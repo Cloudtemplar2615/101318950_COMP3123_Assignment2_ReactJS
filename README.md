@@ -50,3 +50,10 @@ The backend API is required for this frontend to work.
 - Full Employee CRUD (Create, Read, Update, Delete)
 - Search/filter employees by name / department / designation
 - Profile picture upload & display
+
+## SAMPLE USER
+username "johndoe"
+
+email "johndoe@example.com"
+
+password "$2b$10$fsJfOqXH2udP4FZnwEzTnupgKTx1MpL4V29wO5nLgvZu6wijbPqYy" if doesnt work try password123
