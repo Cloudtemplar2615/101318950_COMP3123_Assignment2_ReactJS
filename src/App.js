@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import EmployeesListPage from './pages/EmployeesListPage';
+import EmployeeFormPage from './pages/EmployeeFormPage';
+
+
+function PrivateRoute({ children }) {
+  const token = localStorage.getItem('token');
+  if (!token) return <Navigate to="/login" replace />;
+  return children;
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="app-shell">
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+
+          <Route
+            path="/employees"
+            element={
+              <PrivateRoute>
+                <EmployeesListPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/employees/add"
+            element={
+              <PrivateRoute>
+                <EmployeeFormPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/employees/:id/edit"
+            element={
+              <PrivateRoute>
+                <EmployeeFormPage mode="edit" />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
+
 export default App;
+
